@@ -7,4 +7,4 @@ COPY --from=build /target/0.0.1-SNAPSHOT.jar buro.jar
 
 ## ENV PORT=8080
 EXPOSE 8080
-ENTRYPOINT["java","-jar","buro.jar"]
+ENTRYPOINT ["java","-jar","buro.jar"]
