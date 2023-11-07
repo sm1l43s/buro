@@ -1,6 +1,6 @@
-FROM maven:3.9.1-eclipse-temurin-17-alpine AS build
+FROM gradle:7.3.0-jdk17 AS build
 COPY . .
-RUN mvn clean package -Pprod -DskipTests
+RUN gradle clean build -Pprod -x test
 
 FROM openjdk:21-ea-17-slim-buster
 COPY --from=build /target/0.0.1-SNAPSHOT.jar buro.jar
